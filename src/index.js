@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import Repositorie from './components/Repositorie';
+import Repository from './components/Repository';
 import Header from './components/Header';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
@@ -11,7 +11,7 @@ ReactDOM.render(
     <Header />
     <Switch>
       <Route exact path='/' component={App} />
-      <Route path='/repositorie/:id' component={Repositorie} />
+      <Route path='/repository/:id' component={Repository} />
     </Switch>
   </Router>,
 

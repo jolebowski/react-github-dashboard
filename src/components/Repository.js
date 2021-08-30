@@ -1,7 +1,9 @@
 import React from 'react';
 import { useLocation } from 'react-router';
+import { IoArrowBackOutline } from 'react-icons/io5';
+import { Link } from 'react-router-dom';
 
-export default function Repositorie() {
+export default function Repository() {
   const location = useLocation();
 
   return (
@@ -39,6 +41,11 @@ export default function Repositorie() {
               ? `${location.state.star} Star`
               : `${location.state.star} Star(s)`}
           </div>
+        </div>
+        <div className='flex items-center justify-center pt-7 text-blue-500'>
+          <Link to='/'>
+            <IoArrowBackOutline size={22} />
+          </Link>
         </div>
       </div>
     </div>

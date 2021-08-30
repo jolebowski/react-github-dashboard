@@ -14,7 +14,7 @@ export default function RepositoriesList({ repositories }) {
               <Link
                 className='pl-4 block mt-1 text-lg leading-tight front-semibold text-blue-600'
                 to={{
-                  pathname: `repositorie/${item.id}`,
+                  pathname: `repository/${item.id}`,
                   state: {
                     language: item.language,
                     name: item.name,
