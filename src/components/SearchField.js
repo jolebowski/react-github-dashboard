@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import RepositoriesList from './RepositoriesList';
 
 export default function SearchField() {
   const [username, SetUsername] = useState('');
   const [data, setData] = useState([]);
-  //const [repos, setRepos] = useState([]);
+  const [repos, setRepos] = useState([]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -17,11 +18,10 @@ export default function SearchField() {
 
     if (profile) {
       setData(profile);
-      //setRepos(repositories);
+      setRepos(repositories);
     }
     SetUsername('');
   };
-  console.log(data, 'data');
   return (
     <>
       <div className='flex items-center justify-center p-8'>
@@ -52,6 +52,7 @@ export default function SearchField() {
           <p className='ml-3'>{data.login}</p>
         </div>
       </div>
+      <RepositoriesList repositories={repos} />
     </>
   );
 }
