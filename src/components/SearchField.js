@@ -1,10 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import RepositoriesList from './RepositoriesList';
 
 export default function SearchField() {
   const [username, SetUsername] = useState('');
   const [data, setData] = useState([]);
   const [repos, setRepos] = useState([]);
+
+  useEffect(() => {
+    const repositories = localStorage.getItem('repos');
+    const profile = localStorage.getItem('profile');
+
+    if (repositories && profile) {
+      setRepos(JSON.parse(repositories));
+      setData(JSON.parse(profile));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('repos', JSON.stringify(repos));
+    localStorage.setItem('profile', JSON.stringify(data));
+  });
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const profile = await fetch(

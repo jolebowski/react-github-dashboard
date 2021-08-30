@@ -42,7 +42,7 @@ export default function Repository() {
               : `${location.state.star} Star(s)`}
           </div>
         </div>
-        <div className='flex items-center justify-center pt-7 text-blue-500'>
+        <div className='flex items-center justify-center pt-7 text-blue-400'>
           <Link to='/'>
             <IoArrowBackOutline size={22} />
           </Link>
