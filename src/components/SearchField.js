@@ -6,20 +6,20 @@ export default function SearchField() {
   const [data, setData] = useState([]);
   const [repos, setRepos] = useState([]);
 
-  useEffect(() => {
-    const repositories = localStorage.getItem('repos');
-    const profile = localStorage.getItem('profile');
+  // useEffect(() => {
+  //   const repositories = localStorage.getItem('repos');
+  //   const profile = localStorage.getItem('profile');
 
-    if (repositories && profile) {
-      setRepos(JSON.parse(repositories));
-      setData(JSON.parse(profile));
-    }
-  }, []);
+  //   if (repositories && profile) {
+  //     setRepos(JSON.parse(repositories));
+  //     setData(JSON.parse(profile));
+  //   }
+  // }, []);
 
-  useEffect(() => {
-    localStorage.setItem('repos', JSON.stringify(repos));
-    localStorage.setItem('profile', JSON.stringify(data));
-  });
+  // useEffect(() => {
+  //   localStorage.setItem('repos', JSON.stringify(repos));
+  //   localStorage.setItem('profile', JSON.stringify(data));
+  // });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -39,22 +39,26 @@ export default function SearchField() {
   };
   return (
     <>
-      <div className='flex items-center justify-center p-8'>
-        <div className='flex border-b-2 border-gray-200'>
-          <input
-            type='text'
-            className='px-4 py-2 w-80'
-            value={username}
-            onChange={(e) => SetUsername(e.target.value)}
-            placeholder='Username'
-          />
-          <button
-            type='submit'
-            onClick={handleSubmit}
-            className='px-4 text-white bg-pink-500 border-l uppercase'
-          >
-            Search
-          </button>
+      <div className='flex h-screen items-center justify-center'>
+        <div className=' max-w-md mx-auto flex items-center '>
+          <div className='w-full'>
+            <input
+              type='search'
+              className='px-4 py-2  w-full focus:outline-none flex border-b-2 border-gray-200'
+              value={username}
+              onChange={(e) => SetUsername(e.target.value)}
+              placeholder='Username'
+            />
+          </div>
+          <div>
+            <button
+              type='submit'
+              onClick={handleSubmit}
+              className='px-4 py-2 ml-2 text-white bg-pink-500 border-l uppercase flex justify-center items-center'
+            >
+              Search
+            </button>
+          </div>
         </div>
       </div>
       {data.login && (
@@ -69,7 +73,7 @@ export default function SearchField() {
           </div>
         </div>
       )}
-      <RepositoriesList repositories={repos} />
+      {data.login && <RepositoriesList repositories={repos} />}
     </>
   );
 }
