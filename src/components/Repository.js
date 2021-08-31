@@ -2,6 +2,7 @@ import React from 'react';
 import { useLocation } from 'react-router';
 import { IoArrowBackOutline } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
+import { format } from 'date-fns';
 
 export default function Repository() {
   const location = useLocation();
@@ -41,10 +42,22 @@ export default function Repository() {
               ? `${location.state.star} Star`
               : `${location.state.star} Star(s)`}
           </div>
+          <div className='font-medium text-sm  text-center text-gray-800 pt-3'>
+            {`Crée le  ${format(
+              new Date(location.state.createdAt),
+              'dd/MM/Y'
+            )}`}
+          </div>
+          <div className='font-medium text-sm  text-center text-gray-800 pt-3'>
+            {`Mis à jour le  ${format(
+              new Date(location.state.updatedAt),
+              'dd/MM/Y'
+            )}`}
+          </div>
         </div>
-        <div className='flex items-center justify-center pt-7 text-blue-400'>
+        <div className='flex items-center justify-center pt-4 text-blue-400'>
           <Link to='/'>
-            <IoArrowBackOutline size={22} />
+            <IoArrowBackOutline size={30} />
           </Link>
         </div>
       </div>
