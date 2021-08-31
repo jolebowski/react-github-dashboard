@@ -6,20 +6,20 @@ export default function SearchField() {
   const [data, setData] = useState([]);
   const [repos, setRepos] = useState([]);
 
-  // useEffect(() => {
-  //   const repositories = localStorage.getItem('repos');
-  //   const profile = localStorage.getItem('profile');
+  useEffect(() => {
+    const repositories = localStorage.getItem('repos');
+    const profile = localStorage.getItem('profile');
 
-  //   if (repositories && profile) {
-  //     setRepos(JSON.parse(repositories));
-  //     setData(JSON.parse(profile));
-  //   }
-  // }, []);
+    if (repositories && profile) {
+      setRepos(JSON.parse(repositories));
+      setData(JSON.parse(profile));
+    }
+  }, []);
 
-  // useEffect(() => {
-  //   localStorage.setItem('repos', JSON.stringify(repos));
-  //   localStorage.setItem('profile', JSON.stringify(data));
-  // });
+  useEffect(() => {
+    localStorage.setItem('repos', JSON.stringify(repos));
+    localStorage.setItem('profile', JSON.stringify(data));
+  });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -39,7 +39,7 @@ export default function SearchField() {
   };
   return (
     <>
-      <div className='flex h-screen items-center justify-center'>
+      <div className='flex h-screen items-center justify-center pt-7 pb-5'>
         <div className=' max-w-md mx-auto flex items-center '>
           <div className='w-full'>
             <input
