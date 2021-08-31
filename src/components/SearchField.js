@@ -23,9 +23,9 @@ export default function SearchField() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const profile = await fetch(
-      `https://api.github.com/users/${username}`
-    ).then((res) => res.json());
+    const profile = await fetch(`https://api.github.com/users/${username}`)
+      .then((res) => res.json())
+      .catch((e) => console.error(e));
 
     const repositories = await fetch(profile.repos_url).then((res) =>
       res.json()
