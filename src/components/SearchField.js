@@ -65,7 +65,7 @@ export default function SearchField() {
         <div className='flex justify-center items-center dark:bg-gray-500'>
           <div className='bg-gray-300 w-56 rounded'>
             <div className='relative border-b-4 border-transparent py-1'>
-              <div className='flex justify-center items-center space-x-3 cursor-pointer'>
+              <div className='flex justify-center items-center space-x-3'>
                 <div className='w-9 h-9 rounded-full overflow-hidden border-2 dark:border-white border-gray-900'>
                   <img
                     src={data.avatar_url}
