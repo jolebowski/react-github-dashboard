@@ -11,7 +11,7 @@ export default function RepositoriesList({ repositories }) {
             <>
               <li className='flex flex-row'>
                 <div className='flex flex-1 items-center p-3 transition duration-500 ease-in-out transform hover:-translate-y-2'>
-                  <div className='pl-1 mr-10'>
+                  <div className='pl-1 mr-8'>
                     <MdTabletMac size={20} />
                   </div>
                   <div className='flex-1'>
