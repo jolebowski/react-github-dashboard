@@ -62,14 +62,22 @@ export default function SearchField() {
         </div>
       </div>
       {data.login && (
-        <div className='flex items-center justify-center'>
-          <div className='flex mt-5 bg-gray-300 px-2 py-1 rounded'>
-            <img
-              alt='avatar'
-              className='w-7 rounded-full border-2 border-gray-300'
-              src={data.avatar_url}
-            />
-            <p className='ml-3'>{data.login}</p>
+        <div className='flex justify-center items-center dark:bg-gray-500'>
+          <div className='bg-gray-300 w-56 rounded'>
+            <div className='relative border-b-4 border-transparent py-1'>
+              <div className='flex justify-center items-center space-x-3 cursor-pointer'>
+                <div className='w-9 h-9 rounded-full overflow-hidden border-2 dark:border-white border-gray-900'>
+                  <img
+                    src={data.avatar_url}
+                    alt=''
+                    className='w-full h-full object-cover'
+                  />
+                </div>
+                <div className='font-semibold dark:text-white text-gray-900 text-lg'>
+                  <div>{data.login}</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       )}
